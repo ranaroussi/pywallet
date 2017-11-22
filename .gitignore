@@ -1,0 +1,14 @@
+*.pyc
+.idea
+__pycache__/*
+pywallet/__pycache__/*
+dist
+/build
+/docs/build/doctrees/*
+/docs/build/html/*
+/docs/build/epub/*
+!/docs/build/epub/*.epub
+pywallet.egg-info
+pywallet.egg-info
+Icon
+/notes.txt
