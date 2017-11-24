@@ -5,6 +5,7 @@ from datetime import datetime
 from .utils import (
     Wallet, HDPrivateKey, HDKey
 )
+import inspect
 
 
 def generate_mnemonic(strength=128):
@@ -26,25 +27,30 @@ def create_address(network='btctest', xpub=None, child=None, path=0):
     if child is None:
         child = generate_child_id()
 
-    if network == 'ethereum' or network == 'ETH':
+    if network == 'ethereum' or network.upper() == 'ETH':
         acct_pub_key = HDKey.from_b58check(xpub)
         keys = HDKey.from_path(
             acct_pub_key, '{change}/{index}'.format(change=path, index=child))
-        return {
-            "xpublic_key": keys[-1].to_b58check(),
+
+        res = {
+            "path": "m/" + str(acct_pub_key.index) + "/" + str(keys[-1].index),
             "address": keys[-1].address()
         }
+        if inspect.stack()[1][3] == "create_wallet":
+            res["xpublic_key"] = keys[-1].to_b58check()
+        return res
 
     # else ...
     wallet_obj = Wallet.deserialize(xpub, network=network.upper())
-
     child_wallet = wallet_obj.get_child(child, is_prime=False)
+
     return {
-        "xpublic_key": child_wallet.serialize_b58(private=False),
-        "address": child_wallet.to_address()
+        "path": "m/" + str(wallet_obj.child_number) + "/" +str(child_wallet.child_number),
+        "address": child_wallet.to_address(),
+        # "xpublic_key": child_wallet.serialize_b58(private=False),
+        # "wif": child_wallet.export_to_wif() # needs private key
     }
 
-    return wallet_obj.create_new_address_for_user(child).to_address()
 
 
 def coin_name_from_network(network):
@@ -102,9 +108,11 @@ def create_wallet(network='btctest', seed=None, children=1):
         wallet["xprivate_key"] = acct_priv_key.to_b58check()
         wallet["xpublic_key"] = acct_pub_key.to_b58check()
 
-        wallet["address"] = create_address(
+        child_wallet = create_address(
             network=network.upper(), xpub=wallet["xpublic_key"],
-            child=0, path=0)["address"]
+            child=0, path=0)
+        wallet["address"] = child_wallet["address"]
+        wallet["xpublic_key"] = child_wallet["xpublic_key"]
 
         # get public info from first prime child
         for child in range(children):
@@ -115,6 +123,7 @@ def create_wallet(network='btctest', seed=None, children=1):
             wallet["children"].append({
                 "address": child_wallet["address"],
                 "xpublic_key": child_wallet["xpublic_key"],
+                "path": "m/" + str(child),
                 "wif": ""
             })
 
@@ -131,12 +140,13 @@ def create_wallet(network='btctest', seed=None, children=1):
         wallet["address"] = my_wallet.to_address()
         wallet["wif"] = my_wallet.export_to_wif()
 
-        # get public info from first prime child
+        # prime children
         for child in range(children):
             child_wallet = my_wallet.get_child(child, is_prime=True)
             wallet["children"].append({
                 "xpublic_key": child_wallet.serialize_b58(private=False),
                 "address": child_wallet.to_address(),
+                "path": "m/" + str(child),
                 "wif": child_wallet.export_to_wif()
             })
 
