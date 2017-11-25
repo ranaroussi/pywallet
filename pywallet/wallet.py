@@ -52,7 +52,7 @@ def create_address(network='btctest', xpub=None, child=None, path=0):
 
     return {
         "path": "m/" + str(wallet_obj.child_number) + "/" +str(child_wallet.child_number),
-        "bip32_path": "m/" + net.BIP32_PATH + str(wallet_obj.child_number) + "/" +str(child_wallet.child_number),
+        "bip32_path": net.BIP32_PATH + str(wallet_obj.child_number) + "/" +str(child_wallet.child_number),
         "address": child_wallet.to_address(),
         # "xpublic_key": child_wallet.serialize_b58(private=False),
         # "wif": child_wallet.export_to_wif() # needs private key
