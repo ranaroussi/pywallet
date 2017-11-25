@@ -13,16 +13,7 @@ import six
 import time
 
 # import all the networks
-from ..network import BitcoinMainNet
-from ..network import BitcoinTestNet
-from ..network import DogecoinMainNet
-from ..network import DogecoinTestNet
-from ..network import LitecoinMainNet
-from ..network import LitecoinTestNet
-
-from ..network import BitcoinGoldMainNet
-from ..network import BitcoinCashMainNet
-from ..network import DashMainNet
+from ..network import *
 
 from .keys import incompatible_network_exception_factory
 from .keys import PrivateKey
