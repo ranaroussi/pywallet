@@ -80,6 +80,8 @@ def get_network(network='btctest'):
         return BitcoinGoldMainNet
     elif network == "dash" or network == "dash":
         return DashMainNet
+    elif network == "dash_testnet" or network == 'dashtest':
+        return DashTestNet
 
     return BitcoinTestNet
 
