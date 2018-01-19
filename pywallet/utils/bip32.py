@@ -657,6 +657,8 @@ class Wallet(object):
             response = BitcoinGoldMainNet
         elif network == "dash" or network == "DASH":
             response = DashMainNet
+        elif network == 'dash_testnet' or network == 'DASHTEST':
+            response = DashTestNet
         else:
             response = network
         return response
