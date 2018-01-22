@@ -131,7 +131,7 @@ class Wallet(object):
             else:
                 raise ValueError("parameter must be an int or long")
 
-        self.network = network
+        self.network = Wallet.get_network(network)
         self.depth = l(depth)
         if (isinstance(parent_fingerprint, six.string_types) or
                 isinstance(parent_fingerprint, six.binary_type)):
@@ -657,6 +657,8 @@ class Wallet(object):
             response = BitcoinGoldMainNet
         elif network == "dash" or network == "DASH":
             response = DashMainNet
+        elif network == 'dash_testnet' or network == 'DASHTEST':
+            response = DashTestNet
         else:
             response = network
         return response
