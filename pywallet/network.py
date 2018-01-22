@@ -91,10 +91,15 @@ class LitecoinMainNet(object):
 
     # Unofficial extended version bytes taken from
     # https://bitcointalk.org/index.php?topic=453395.0
-    EXT_PUBLIC_KEY = 0x019da462
-    EXT_SECRET_KEY = 0x019d9cfe
-    BIP32_PATH = "m/44'/2'/0'/"
+    # EXT_PUBLIC_KEY = 0x019da462
+    # EXT_SECRET_KEY = 0x019d9cfe
 
+    # same as Bitcoin's
+    # https://github.com/ranaroussi/pywallet/issues/6
+    EXT_PUBLIC_KEY = 0x0488B21E
+    EXT_SECRET_KEY = 0x0488ADE4
+
+    BIP32_PATH = "m/44'/2'/0'/"
 
 class LitecoinTestNet(object):
     """Litecoin TestNet version bytes
@@ -113,8 +118,14 @@ class LitecoinTestNet(object):
 
     # Unofficial extended version bytes taken from
     # https://bitcointalk.org/index.php?topic=453395.0
-    EXT_PUBLIC_KEY = 0x0436f6e1
-    EXT_SECRET_KEY = 0x0436ef7d
+    # EXT_PUBLIC_KEY = 0x0436f6e1
+    # EXT_SECRET_KEY = 0x0436ef7d
+
+    # same as Bitcoin's
+    # https://github.com/ranaroussi/pywallet/issues/6
+    EXT_PUBLIC_KEY = 0x043587CF
+    EXT_SECRET_KEY = 0x04358394
+
     BIP32_PATH = "m/44'/1'/0'/"
 
 
