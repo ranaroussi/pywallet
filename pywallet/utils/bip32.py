@@ -659,6 +659,8 @@ class Wallet(object):
             response = DashMainNet
         elif network == 'dash_testnet' or network == 'DASHTEST':
             response = DashTestNet
+        elif network == 'feathercoin' or network == 'FTC':
+            response = FeathercoinMainNet
         else:
             response = network
         return response
