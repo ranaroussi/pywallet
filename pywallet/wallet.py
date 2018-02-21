@@ -83,6 +83,8 @@ def get_network(network='btctest'):
         return DashMainNet
     elif network == "dash_testnet" or network == 'dashtest':
         return DashTestNet
+    elif network == "feathercoin" or network == 'ftc':
+        return FeathercoinMainNet
 
     return BitcoinTestNet
 

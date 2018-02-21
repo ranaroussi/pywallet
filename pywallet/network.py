@@ -59,7 +59,6 @@ class BitcoinMainNet(object):
     EXT_SECRET_KEY = 0x0488ADE4  # Used to serialize private BIP32 addresses
     BIP32_PATH = "m/44'/0'/0'/"
 
-
 class BitcoinTestNet(object):
     """Bitcoin TestNet version bytes.
     From https://github.com/bitcoin/bitcoin/blob/v0.9.0rc1/src/chainparams.cpp
@@ -185,3 +184,17 @@ class BlockCypherTestNet(object):
     EXT_PUBLIC_KEY = 0x2d413ff  # Used to serialize public BIP32 addresses
     EXT_SECRET_KEY = 0x2d40fc3  # Used to serialize private BIP32 addresses
     BIP32_PATH = "m/44'/1'/0'/"
+
+
+class FeathercoinMainNet(object):
+    """Feathercoin MainNet version bytes.
+    From https://github.com/FeatherCoin/Feathercoin/blob/master-0.13/src/chainparams.cpp
+    """
+    NAME = "Feathercoin Main Net"
+    COIN = "FTC"
+    SCRIPT_ADDRESS = 0x05  # int(0x05) = 5
+    PUBKEY_ADDRESS = 0x0E  # int(0x0E) = 14  # Used to create payment addresses
+    SECRET_KEY = 0x8E      # int(0x8E) = 142  # Used for WIF format
+    EXT_PUBLIC_KEY = 0x0488BC26  # Used to serialize public BIP32 addresses
+    EXT_SECRET_KEY = 0x0488DAEE  # Used to serialize private BIP32 addresses
+    BIP32_PATH = "m/44'/4'/0'/"
