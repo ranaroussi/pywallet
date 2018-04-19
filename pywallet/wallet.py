@@ -83,6 +83,10 @@ def get_network(network='btctest'):
         return DashMainNet
     elif network == "dash_testnet" or network == 'dashtest':
         return DashTestNet
+    elif network == "qtum":
+        return QtumMainNet
+    elif network == "qtum_testnet" or network == "qtumtest":
+        return QtumTestNet
 
     return BitcoinTestNet
 
