@@ -30,14 +30,13 @@ def create_address(network='btctest', xpub=None, child=None, path=0):
 
     if network == 'ethereum' or network.upper() == 'ETH':
         acct_pub_key = HDKey.from_b58check(xpub)
-
         keys = HDKey.from_path(
             acct_pub_key, '{change}/{index}'.format(change=path, index=child))
 
         res = {
-            "path": "m/" + str(acct_pub_key.index) + "/" + str(keys[1].index),
+            "path": "m/" + str(acct_pub_key.index) + "/" + str(keys[-1].index),
             "bip32_path": "m/44'/60'/0'/" + str(acct_pub_key.index) + "/" + str(keys[-1].index),
-            "address": keys[1].address()
+            "address": keys[-1].address()
         }
 
         if inspect.stack()[1][3] == "create_wallet":
@@ -83,6 +82,10 @@ def get_network(network='btctest'):
         return DashMainNet
     elif network == "dash_testnet" or network == 'dashtest':
         return DashTestNet
+    elif network == 'omni' or network == 'OMNI':
+        return OmniMainNet
+    elif network == 'omni_testnet' or network == 'OMNI_TESTNET':
+        return OmniTestNet
 
     return BitcoinTestNet
 
