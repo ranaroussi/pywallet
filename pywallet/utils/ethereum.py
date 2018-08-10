@@ -12,6 +12,7 @@ wallets."""
 import math
 import base58
 import base64
+import binascii
 import hashlib
 import hmac
 from mnemonic.mnemonic import Mnemonic
@@ -24,8 +25,6 @@ from two1.crypto.ecdsa import ECPointAffine
 from two1.crypto.ecdsa import secp256k1
 
 bitcoin_curve = secp256k1()
-
-from rlp.utils import encode_hex
 
 from Crypto.Hash import keccak
 sha3_256 = lambda x: keccak.new(digest_bits=256, data=x)
@@ -743,7 +742,7 @@ class PublicKey(PublicKeyBase):
             bytes: Base58Check encoded string
         """
         version = '0x'
-        return version + encode_hex(self.keccak[12:])
+        return version + binascii.hexlify(self.keccak[12:]).decode('ascii')
         # Put the version byte in front, 0x00 for Mainnet, 0x6F for testnet
         # version = bytes([self.TESTNET_VERSION]) if testnet else bytes([self.MAINNET_VERSION])
         # return base58.b58encode_check(version + self.hash160(compressed))
