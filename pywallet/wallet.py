@@ -79,10 +79,16 @@ def get_network(network='btctest'):
         return BitcoinCashMainNet
     elif network == "bitcoin_gold" or network == "btg":
         return BitcoinGoldMainNet
-    elif network == "dash" or network == "dash":
+    elif network == "dash":
         return DashMainNet
     elif network == "dash_testnet" or network == 'dashtest':
         return DashTestNet
+    elif network == 'omni':
+        return OmniMainNet
+    elif network == 'omni_testnet':
+        return OmniTestNet
+    elif network == "feathercoin" or network == 'ftc':
+        return FeathercoinMainNet
     elif network == "qtum":
         return QtumMainNet
     elif network == "qtum_testnet" or network == "qtumtest":

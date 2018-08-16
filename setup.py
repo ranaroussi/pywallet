@@ -28,7 +28,7 @@ version = load_version()
 setup(
     name='pywallet',
     version=version,
-    description="Simple BIP32 (HD) wallet creation for BTC, BTG, BCH, LTC, DASH and DOGE",
+    description="Simple BIP32 (HD) wallet creation for BTC, BTG, BCH, LTC, DASH, USDT, QTUM and DOGE",
     long_description=long_description,
     url='https://github.com/ranaroussi/pywallet',
     author='Ran Aroussi',
