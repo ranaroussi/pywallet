@@ -659,6 +659,10 @@ class Wallet(object):
             response = DashMainNet
         elif network == 'dash_testnet' or network == 'DASHTEST':
             response = DashTestNet
+        elif network == "qtum" or network == "QTUM":
+            response = QtumMainNet
+        elif network == 'qtum_testnet' or network == 'QTUMTEST':
+            response = QtumTestNet
         else:
             response = network
         return response
