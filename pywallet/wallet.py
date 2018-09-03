@@ -35,9 +35,9 @@ def create_address(network='btctest', xpub=None, child=None, path=0):
             acct_pub_key, '{change}/{index}'.format(change=path, index=child))
 
         res = {
-            "path": "m/" + str(acct_pub_key.index) + "/" + str(keys[1].index),
+            "path": "m/" + str(acct_pub_key.index) + "/" + str(keys[-1].index),
             "bip32_path": "m/44'/60'/0'/" + str(acct_pub_key.index) + "/" + str(keys[-1].index),
-            "address": keys[1].address()
+            "address": keys[-1].address()
         }
 
         if inspect.stack()[1][3] == "create_wallet":
