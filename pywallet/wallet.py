@@ -93,6 +93,10 @@ def get_network(network='btctest'):
         return QtumMainNet
     elif network == "qtum_testnet" or network == "qtumtest":
         return QtumTestNet
+    elif network == "bitcore" or network == "btx":
+        return BitcoreMainNet
+    elif network == "bitcore_testnet" or network == "btxtest":
+        return BitcoreTestNet
 
     return BitcoinTestNet
 
