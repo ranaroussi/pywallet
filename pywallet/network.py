@@ -254,3 +254,34 @@ class QtumTestNet(object):
     EXT_PUBLIC_KEY = 0x043587CF
     EXT_SECRET_KEY = 0x04358394
     BIP32_PATH = "m/44'/88'/0'/"
+
+
+class RavenMainNet(object):
+    """Raven MainNet version bytes
+
+    Primary version bytes from:
+    https://github.com/ravenproject/ravencoin/blob/master/src/chainparams.cpp
+    """
+    NAME = "Raven Main Net"
+    COIN = "RVN"
+    SCRIPT_ADDRESS = 0x7A  # int(0x6e) = 122
+    PUBKEY_ADDRESS = 0x3C  # int(0x78) = 60
+    SECRET_KEY = 0x80      # int(0xef) = 128
+    EXT_PUBLIC_KEY = 0x0488B21E
+    EXT_SECRET_KEY = 0x0488ADE4
+    BIP32_PATH = "m/44'/175'/0'/"
+
+class RavenTestNet(object):
+    """Raven TestNet version bytes
+
+    Primary version bytes from:
+    https://github.com/ravenproject/ravencoin/blob/master/src/chainparams.cpp
+    """
+    NAME = "Raven Test Net"
+    COIN = "RVN"
+    SCRIPT_ADDRESS = 0xC4  # int(0x6e) = 196
+    PUBKEY_ADDRESS = 0x6F  # int(0x78) = 111
+    SECRET_KEY = 0xEF      # int(0xef) = 239
+    EXT_PUBLIC_KEY = 0x043587CF
+    EXT_SECRET_KEY = 0x04358394
+    BIP32_PATH = "m/44'/175'/0'/"
