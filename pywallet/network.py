@@ -254,3 +254,31 @@ class QtumTestNet(object):
     EXT_PUBLIC_KEY = 0x043587CF
     EXT_SECRET_KEY = 0x04358394
     BIP32_PATH = "m/44'/88'/0'/"
+ 
+
+ class BitcoreMainNet(object):
+    """BitCore MainNet version bytes.
+    From https://github.com/LIMXTEC/BitCore/blob/0.15/src/chainparams.cpp
+    """
+    NAME = "BitCore Main Net"
+    COIN = "BTX"
+    SCRIPT_ADDRESS = 0x7D  # int(0x7D) = 125
+    PUBKEY_ADDRESS = 0x03  # int(0x03) = 3  # Used to create payment addresses
+    SECRET_KEY = 0x80      # int(0x80) = 128  # Used for WIF format
+    EXT_PUBLIC_KEY = 0x0488B21E # Used to serialize public BIP32 addresses
+    EXT_SECRET_KEY = 0x0488ADE4  # Used to serialize private BIP32 addresses
+    BIP32_PATH = "m/44'/160'/0'/"
+    
+class BitcoreTestNet(object):
+    """BitCore TestNet version bytes.
+    From https://github.com/LIMXTEC/BitCore/blob/0.15/src/chainparams.cpp
+    """
+    NAME = "BitCore Test Net"
+    COIN = "BTX"
+    SCRIPT_ADDRESS = 0xC4  # int(0xC4) = 196
+    PUBKEY_ADDRESS = 0x6F  # int(0x6F) = 111  # Used to create payment addresses
+    SECRET_KEY = 0xEF      # int(0xEF) = 239  # Used for WIF format
+    EXT_PUBLIC_KEY = 0x043587CF # Used to serialize public BIP32 addresses
+    EXT_SECRET_KEY = 0x04358394  # Used to serialize private BIP32 addresses
+    BIP32_PATH = "m/44'/1'/0'/"
+    

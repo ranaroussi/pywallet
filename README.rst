@@ -16,14 +16,14 @@ PyWallet
 
 \
 
-**Simple BIP32 (HD) wallet creation for: BTC, BTG, BCH, ETH, LTC, DASH, DOGE**
+**Simple BIP32 (HD) wallet creation for: BTC, BTX, BTG, BCH, ETH, LTC, DASH, DOGE**
 
 BIP32 (or HD for "hierarchical deterministic") wallets allow you to create
 child wallets which can only generate public keys and don't expose a
 private key to an insecure server.
 
 This library simplify the process of creating new wallets for the
-BTC, BTG, BCH, ETH, LTC, DASH and DOGE cryptocurrencies.
+BTC, BTX, BTG, BCH, ETH, LTC, DASH and DOGE cryptocurrencies.
 
 Most of the code here is forked from:
 
