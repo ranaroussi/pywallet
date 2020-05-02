@@ -83,6 +83,10 @@ def get_network(network='btctest'):
         return DashMainNet
     elif network == "dash_testnet" or network == 'dashtest':
         return DashTestNet
+    elif network == "martex" or network == "mxt":
+        return MarteXMainNet
+    elif network == "martex_testnet" or network == 'martextest':
+        return MarteXTestNet
     elif network == 'omni':
         return OmniMainNet
     elif network == 'omni_testnet':

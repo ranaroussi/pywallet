@@ -28,7 +28,7 @@ version = load_version()
 setup(
     name='pywallet',
     version=version,
-    description="Simple BIP32 (HD) wallet creation for BTC, BTG, BCH, LTC, DASH, USDT, QTUM and DOGE",
+    description="Simple BIP32 (HD) wallet creation for MXT, BTC, BTG, BCH, LTC, DASH, USDT, QTUM and DOGE",
     long_description=long_description,
     url='https://github.com/ranaroussi/pywallet',
     author='Ran Aroussi',
@@ -47,7 +47,7 @@ setup(
         "Programming Language :: Python :: 3.6",
     ],
     platforms = ['any'],
-    keywords='bitcoin, wallet, litecoin, hd-wallet, dogecoin, dashcoin, python',
+    keywords='martexcoin, bitcoin, wallet, litecoin, hd-wallet, dogecoin, dashcoin, python',
     packages = find_packages(exclude=['contrib', 'docs', 'tests', 'demo', 'demos', 'examples']),
     package_data={'': ['AUTHORS', 'LICENSE']},
     install_requires=[
