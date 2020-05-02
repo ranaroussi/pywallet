@@ -45,6 +45,28 @@ class DashTestNet(object):
     EXT_SECRET_KEY = 0x04358394  # Used to serialize private BIP32 addresses
     BIP32_PATH = "m/44'/1'/0'/"
 
+class MarteXMainNet(object):
+    """MarteX MainNet version bytes."""
+    NAME = "MarteX Main Net"
+    COIN = "MXT"
+    SCRIPT_ADDRESS = 0x05  # int(0x05) = 05
+    PUBKEY_ADDRESS = 0x32  # int(0x32) = 50  # Used to create payment addresses
+    SECRET_KEY = 0xB2      # int(0xB2) = 178  # Used for WIF format
+    EXT_PUBLIC_KEY = 0X0488B21E  # Used to serialize public BIP32 addresses
+    EXT_SECRET_KEY = 0X0488ADE4  # Used to serialize private BIP32 addresses
+    BIP32_PATH = "m/44'/180'/0'/"
+
+class MarteXTestNet(object):
+    """MarteX TestNet version bytes."""
+    NAME = "MarteX Test Net"
+    COIN = "MXT"
+    SCRIPT_ADDRESS = 0xC4  # int(0xC4) = 196
+    PUBKEY_ADDRESS = 0x6C  # int(0x6F) = 111  # Used to create payment addresses
+    SECRET_KEY = 0x144     # int(0x144) = 324  # Used for WIF format
+    EXT_PUBLIC_KEY = 0x043587CF  # Used to serialize public BIP32 addresses
+    EXT_SECRET_KEY = 0x04358394  # Used to serialize private BIP32 addresses
+    BIP32_PATH = "m/44'/1'/0'/"
+
 class OmniMainNet(object):
     """Bitcoin MainNet version bytes.
     From https://github.com/OmniLayer/omnicore/blob/develop/src/chainparams.cpp
