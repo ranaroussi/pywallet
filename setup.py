@@ -55,9 +55,7 @@ setup(
         'ecdsa>=0.11',
         'six>=1.8.0',
         # 'two1>=3.10.8',
+        'git+git://github.com/Coinkudi/two1.git#egg=two1',
         'pycryptodome>=3.6.6',
     ]
-    dependency_links=[
-        "git+git://github.com/Coinkudi/two1.git#egg=two1"
-    ],
 )
