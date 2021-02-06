@@ -58,6 +58,6 @@ setup(
         'pycryptodome>=3.6.6',
     ]
     dependency_links=[
-        "git+https://github.com/Coinkudi/two1.git#egg=two1"
+        "git+git://github.com/Coinkudi/two1.git#egg=two1"
     ],
 )
