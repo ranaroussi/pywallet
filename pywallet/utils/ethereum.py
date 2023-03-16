@@ -17,17 +17,50 @@ import hashlib
 import hmac
 from mnemonic.mnemonic import Mnemonic
 import random
-from two1.bitcoin.utils import bytes_to_str
-from two1.bitcoin.utils import address_to_key_hash
-from two1.bitcoin.utils import rand_bytes
-from two1.crypto.ecdsa_base import Point
-from two1.crypto.ecdsa import ECPointAffine
-from two1.crypto.ecdsa import secp256k1
+import codecs
+import struct
+import os
+from collections import namedtuple
+from pywallet.utils.ecdsa import Point
+from pywallet.utils.ecdsa import ECPointAffine
+from pywallet.utils.ecdsa import secp256k1
 
 bitcoin_curve = secp256k1()
 
 from Crypto.Hash import keccak
 sha3_256 = lambda x: keccak.new(digest_bits=256, data=x)
+
+Point = namedtuple('Point', ['x', 'y'])
+
+def rand_bytes(n, secure=True):
+    """ Returns n random bytes.
+    Args:
+        n (int): number of bytes to return.
+        secure (bool): If True, uses os.urandom to generate
+            cryptographically secure random bytes. Otherwise, uses
+            random.randint() which generates pseudo-random numbers.
+    Returns:
+        b (bytes): n random bytes.
+    """
+    if secure:
+        return os.urandom(n)
+    else:
+        return bytes([random.randint(0, 255) for i in range(n)])
+
+
+def address_to_key_hash(s):
+    """ Given a Bitcoin address decodes the version and
+    RIPEMD-160 hash of the public key.
+    Args:
+        s (bytes): The Bitcoin address to decode
+    Returns:
+        (version, h160) (tuple): A tuple containing the version and
+        RIPEMD-160 hash of the public key.
+    """
+    n = base58.b58decode_check(s)
+    version = n[0]
+    h160 = n[1:]
+    return version, h160
 
 
 def sha3(seed):
@@ -44,6 +77,17 @@ def get_bytes(s):
         raise TypeError("s must be either 'bytes' or 'str'!")
 
     return b
+
+
+def bytes_to_str(b):
+    """ Converts bytes into a hex-encoded string.
+    Args:
+        b (bytes): bytes to encode
+    Returns:
+        h (str): hex-encoded string corresponding to b.
+    """
+    return codecs.encode(b, 'hex_codec').decode('ascii')
+
 
 
 class PrivateKeyBase(object):
