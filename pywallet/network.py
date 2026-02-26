@@ -51,8 +51,8 @@ class OmniMainNet(object):
     """
     NAME = "Omni Main Net"
     COIN = "USDT"
-    SCRIPT_ADDRESS = 0x00  # int(0x00) = 0
-    PUBKEY_ADDRESS = 0x05  # int(0x05) = 5  # Used to create payment addresses
+    SCRIPT_ADDRESS = 0x05  # int(0x05) = 5
+    PUBKEY_ADDRESS = 0x00  # int(0x00) = 0  # Used to create payment addresses
     SECRET_KEY = 0x80      # int(0x80) = 128  # Used for WIF format
     EXT_PUBLIC_KEY = 0x0488B21E  # Used to serialize public BIP32 addresses
     EXT_SECRET_KEY = 0x0488ADE4  # Used to serialize private BIP32 addresses
@@ -64,8 +64,8 @@ class OmniTestNet(object):
     """
     NAME = "Omni Test Net"
     COIN = "USDT"
-    SCRIPT_ADDRESS = 0x6f  # int(0x6f) = 111
-    PUBKEY_ADDRESS = 0xc4  # int(0xc4) = 196  # Used to create payment addresses
+    SCRIPT_ADDRESS = 0xc4  # int(0xc4) = 196
+    PUBKEY_ADDRESS = 0x6f  # int(0x6f) = 111  # Used to create payment addresses
     SECRET_KEY = 0xef      # int(0xef) = 239  # Used for WIF format
     EXT_PUBLIC_KEY = 0x043587CF  # Used to serialize public BIP32 addresses
     EXT_SECRET_KEY = 0x04358394  # Used to serialize private BIP32 addresses
